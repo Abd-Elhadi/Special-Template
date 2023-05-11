@@ -4,6 +4,41 @@
 body {
     font-family: 'Open Sans', sans-serif;
 }
+/* start settings box */
+.settings-box {
+    position: fixed;
+    left: -200px;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    z-index: 1000;
+    min-height: 100vh;
+    transition: .3s;
+}
+
+.settings-box .toggle-settings {
+    position: absolute;
+    right: -30px;
+    top: 100px;
+    background-color: #FFF;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.settings-box .toggle-settings .fa-gear {
+    width: 30px;
+    padding: 8px 0;
+}
+
+.settings-box.open {
+    left: 0;
+}
+
+.settings-box .setting-content {
+
+}
+/* end settings box */
 /* start landing page */
 .landing-page {
     min-height: 100vh;

@@ -1,3 +1,14 @@
+// toggle spin class on incon
+let toggleSettings = document.querySelector('.toggle-settings .fa-gear');
+toggleSettings.onclick = () => {
+    // toggle class fa-spin for rotation on self
+    toggleSettings.classList.toggle('fa-spin');
+
+    // toggle class open on main settings box
+    document.querySelector('.settings-box').classList.toggle('open');
+}
+
+
 // select landing page element
 let landingPage = document.querySelector('.landing-page');
 
