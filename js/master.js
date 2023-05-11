@@ -1,3 +1,22 @@
+// check if there's a colo prop in local storage
+let mainColor = localStorage.getItem('color-option');
+if (mainColor) {
+    // if there is, add the color to the body
+    document.documentElement.style.setProperty('--main-color', mainColor);
+
+    // remove active class
+    document.querySelectorAll('.colors-list li').forEach(color => {
+        color.classList.remove('active');
+    });
+
+    // add active class
+    document.querySelectorAll('.colors-list li').forEach(color => {
+        if (color.dataset.color === mainColor) {
+            color.classList.add('active');
+        }
+    })
+}
+
 // toggle spin class on incon
 let toggleSettings = document.querySelector('.toggle-settings .fa-gear');
 toggleSettings.onclick = () => {
@@ -8,6 +27,26 @@ toggleSettings.onclick = () => {
     document.querySelector('.settings-box').classList.toggle('open');
 }
 
+// switch colors
+const colorsList = document.querySelectorAll('.colors-list li');
+colorsList.forEach(color => {
+    color.addEventListener('click', e => {
+        // remove active class
+        colorsList.forEach(color => {
+            color.classList.remove('active');
+        });
+        let theChosenColor = e.target.dataset.color;
+
+        // set color on root
+        document.documentElement.style.setProperty('--main-color', theChosenColor);
+
+        // save color on local storage
+        localStorage.setItem('color-option', theChosenColor);
+
+        // add active class to the clicked item
+        e.target.classList.add('active');
+    })
+})
 
 // select landing page element
 let landingPage = document.querySelector('.landing-page');
