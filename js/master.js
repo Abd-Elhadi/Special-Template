@@ -155,4 +155,74 @@ window.onscroll = () => {
         //     span.style.width = span.dataset.progress;
         // });
     }
-}
+};
+
+// create popup with the image
+let ourGallery = document.querySelectorAll('.gallery img');
+ourGallery.forEach(img => {
+    img.addEventListener('click', (e) => {
+        // create overlay elelent
+        let overlay = document.createElement('div');
+
+        // add class to overlay
+        overlay.className = 'popup-overlay';
+
+        // append overlay to body
+        document.body.appendChild(overlay);
+
+        // create the popup
+        let popupBox = document.createElement('div');
+
+        // add popup-box class to popupBox
+        popupBox.className = 'popup-box';
+
+        if (img.alt !== null) {
+            // create h3 heading for ImgHeading
+            let imgHeading = document.createElement('h3');
+
+            // add img alt to imgHeading as text node
+            imgHeading.appendChild(document.createTextNode(img.alt));
+
+            // add imgHeading to popupBox
+            popupBox.appendChild(imgHeading);
+        }
+
+        // create the image
+        let popupImg = document.createElement('img');
+
+        // set popupImg src to img src
+        popupImg.src = img.src;
+
+        // add popupImg to popupBox
+        popupBox.appendChild(popupImg);
+
+        // append the popupBox to the body
+        document.body.appendChild(popupBox);
+
+        // create close span
+        let close = document.createElement('span');
+
+        // create the close text
+        let closeText = document.createTextNode('X');
+
+        // append closeText to close
+        close.appendChild(closeText);
+
+        // add close-button class to close
+        close.className = 'close-button';
+
+        // add close to popupBox
+        popupBox.appendChild(close);
+    });
+});
+
+// close the popupBox window
+document.addEventListener('click', (e) => {
+    if (e.target.classList == 'close-button') {
+        // remove the current popupBox
+        e.target.parentNode.remove();
+
+        // remove the overlay
+        document.querySelector('.popup-overlay').remove();
+    }
+})
