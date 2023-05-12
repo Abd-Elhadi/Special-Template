@@ -1,5 +1,5 @@
 // check if there's a color prop in local storage
-let mainColor = localStorage.getItem('color-option');
+let mainColor = localStorage.getItem('color_option');
 
 if (mainColor) {
     // if there is, add the color to the body
@@ -73,7 +73,7 @@ colorsList.forEach(color => {
         document.documentElement.style.setProperty('--main-color', theChosenColor);
 
         // save color on local storage
-        localStorage.setItem('color-option', theChosenColor);
+        localStorage.setItem('color_option', theChosenColor);
     });
 });
 
@@ -251,4 +251,48 @@ function handleActive(event) {
 
     // add active class onself
     event.target.classList.add('active');
+}
+
+let bulletsSpan = document.querySelectorAll('.bullets-option span');
+let bulletsContainer = document.querySelector('.nav-bullets');
+
+let bulletLocalItem = localStorage.getItem('bullets_option');
+
+if (bulletLocalItem) {
+    bulletsSpan.forEach(span => {
+        span.classList.remove('active');
+    });
+
+    if (bulletLocalItem === 'block') {
+        bulletsContainer.style.display = 'block';
+        document.querySelector('.bullets-option .yes').classList.add('active');
+    } else {
+        bulletsContainer.style.display = 'none';
+        document.querySelector('.bullets-option .no').classList.add('active');
+    }
+}
+
+bulletsSpan.forEach(span => {
+    span.addEventListener('click', e => {
+        handleActive(e);
+
+        if (e.target.dataset.display === 'show') {
+            bulletsContainer.style.display = 'block';
+            localStorage.setItem('bullets_option', 'block');
+        } else {
+            bulletsContainer.style.display = 'none';
+            localStorage.setItem('bullets_option', 'none');
+        }
+    });
+});
+
+let resetButton = document.querySelector('.reset-options');
+resetButton.onclick = () => {
+    // clear the stored options
+    localStorage.removeItem('color_option');
+    localStorage.removeItem('background_option');
+    localStorage.removeItem('bullets_option');
+
+    // reload windwo
+    window.location.reload();
 }

@@ -114,6 +114,19 @@ body {
 .settings-box .option-box span:hover {
     opacity: 1;
 }
+
+.settings-box .reset-options {
+    background-color: #ff5722;
+    border: none;
+    width: 178px;
+    margin: 10px auto;
+    display: block;
+    color: #FFF;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
 /* end settings box */
 /* start nav bullets */
 .nav-bullets {
