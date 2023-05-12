@@ -225,4 +225,28 @@ document.addEventListener('click', (e) => {
         // remove the overlay
         document.querySelector('.popup-overlay').remove();
     }
-})
+});
+
+// select all bullets elements
+let allBullets = document.querySelectorAll('.nav-bullets .bullet');
+scrollTo(allBullets);
+
+// select all links
+let allLinks = document.querySelectorAll('.links a');
+scrollTo(allLinks);
+
+function scrollTo(elements) {
+    elements.forEach(element => {
+        element.addEventListener('click', e => {
+
+            // prevent default if is a link
+            if (e.target.nodeName.toLowerCase() === 'a') {
+                e.preventDefault();
+            }
+
+            document.querySelector(e.target.dataset.section).scrollIntoView({
+                behavior: "smooth"
+            });
+        })
+    })
+}
