@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    width: 1170px;
+    /* width: 1170px; */
     padding: 0 15px;
     margin: auto;
 }
@@ -207,13 +207,15 @@ body {
     font-weight: bold;
 }
 
+.header-area .links-container {
+    width: 100%;
+    text-align: right;
+}
+
 .header-area .links {
     list-style: none;
     width: 100%;
-    text-align: right;
     padding-left: 0;
-    padding-right: 20px;
-    font-size: 15px;
 }
 
 .header-area .links li {
@@ -230,6 +232,37 @@ body {
 .header-area .links li a:hover,
 .header-area .links li a.active {
     color: var(--main-color);
+}
+
+.header-area .toggle-menu {
+    background: none;
+    border: none;
+    width: 40px;
+    cursor: pointer;
+    margin-top: 15px;
+    display: none;
+    position: relative;
+}
+
+.header-area .toggle-menu.menu-active::before {
+    content: '';
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    bottom: -15px;
+    left: 10px;
+}
+
+.header-area .toggle-menu:focus {
+    outline: none;
+}
+
+.header-area .toggle-menu span {
+    display: block;
+    background-color: #fff;
+    height: 4px;
+    margin-bottom: 4px;
 }
 
 .introduction-text {
@@ -256,6 +289,34 @@ body {
     line-height: 1.6;
     font-size: 20px;
     margin: 0;
+}
+
+@media (max-width: 991px) {
+    .header-area .links {
+        display: none;
+    }
+    .header-area .links.open {
+        background-color: #fff;
+        padding: 10px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        border-radius: 6px;
+        text-align: left;
+    }
+    .header-area .links.open li {
+        display: block;
+        margin: 10px;
+    }
+    .header-area .links.open li a {
+        color: var(--main-color);
+        font-weight: bold;
+    }
+    .header-area .toggle-menu {
+        display: inline-block;
+    }
 }
 /* end landing page */
 /* start about us */
@@ -717,3 +778,25 @@ body {
     transition: 0.3s;
 }
 /* end contact us */
+/* start grid system */
+@media (min-width: 576px) { /* small devices*/
+    .container {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) { /* medium devices */
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) { /* desktops devices */
+    .container {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) { /* large screens */
+    .container {
+        max-width: 1140px;
+    }
+}
+/* end grid system */

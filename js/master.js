@@ -295,4 +295,38 @@ resetButton.onclick = () => {
 
     // reload windwo
     window.location.reload();
+};
+
+// toggle menu
+let toggleButton = document.querySelector('.toggle-menu');
+let theLinks = document.querySelector('.links');
+
+toggleButton.onclick = (e) => {
+    // stop propagation
+    e.stopPropagation();
+
+    toggleButton.classList.toggle('menu-active');
+    theLinks.classList.toggle('open');
+};
+
+// how to toggle off a menu without the toggle button
+document.addEventListener('click', (e) => {
+    // if (e.target.nodeName.toLowerCase() !== 'span' && e.target.nodeName.toLowerCase() !== 'ul') {
+
+    // }
+
+    if (e.target !== toggleButton && e.target !== theLinks) {
+        if (theLinks.classList.contains('open')) {
+
+            toggleButton.classList.toggle('menu-active');
+            theLinks.classList.toggle('open');
+            // toggleButton.classList.remove('menu-active');
+            // theLinks.classList.remove('open');
+        }
+    }
+});
+
+// stop propagation on menu links
+theLinks.onclick = (e) => {
+    e.stopPropagation();
 }
