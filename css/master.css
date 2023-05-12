@@ -95,10 +95,10 @@ body {
     background-color: #4CAF50;
 }
 
-.settings-box .random-backgrounds .yes,
-.settings-box .random-backgrounds .no {
+.settings-box .option-box .yes,
+.settings-box .option-box .no {
     width: 50px;
-    background-color:  #009688;
+    background-color:  var(--main-color);
     color: #FFF;
     margin-top: 10px;
     display: inline-block;
@@ -110,8 +110,8 @@ body {
     cursor: pointer;
     transition: .3s;
 }
-.settings-box .option-box .random-backgrounds span.active,
-.settings-box .option-box .random-backgrounds span:hover {
+.settings-box .option-box span.active,
+.settings-box .option-box span:hover {
     opacity: 1;
 }
 /* end settings box */

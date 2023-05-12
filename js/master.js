@@ -63,10 +63,10 @@ toggleSettings.onclick = () => {
 const colorsList = document.querySelectorAll('.colors-list li');
 colorsList.forEach(color => {
     color.addEventListener('click', e => {
-        // remove active class
-        colorsList.forEach(color => {
-            color.classList.remove('active');
-        });
+
+        // handle active class
+        handleActive(e);
+
         let theChosenColor = e.target.dataset.color;
 
         // set color on root
@@ -74,9 +74,6 @@ colorsList.forEach(color => {
 
         // save color on local storage
         localStorage.setItem('color-option', theChosenColor);
-
-        // add active class to the clicked item
-        e.target.classList.add('active');
     });
 });
 
@@ -84,13 +81,8 @@ colorsList.forEach(color => {
 const backgroundOption = document.querySelectorAll('.random-backgrounds span');
 backgroundOption.forEach(background => {
     background.addEventListener('click', e => {
-        // remove active class
-        backgroundOption.forEach(back => {
-            back.classList.remove('active');
-        });
-
-        // add active class to the clicked item
-        e.target.classList.add('active');
+        // handle active class
+        handleActive(e);
 
         if (e.target.dataset.background === 'yes') {
             randomBackground = true;
@@ -249,4 +241,14 @@ function scrollTo(elements) {
             });
         })
     })
+}
+
+// handle active class
+function handleActive(event) {
+    event.target.parentElement.querySelectorAll('.active').forEach(element => {
+        element.classList.remove('active');
+    });
+
+    // add active class onself
+    event.target.classList.add('active');
 }
