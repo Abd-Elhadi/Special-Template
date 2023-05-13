@@ -193,6 +193,11 @@ body {
     z-index: 1;
 }
 
+.landing-page .container {
+    position: relative;
+    z-index: 1000;
+}
+
 .landing-page .header-area {
     position: relative;
     z-index: 2;
@@ -273,12 +278,18 @@ body {
     z-index: 2;
     color: #FFF;
     text-align: center;
-    width: 100%;
+    width: 95%;
 }
 
 .introduction-text h1 {
     font-size: 34px;
     margin: 0 0 12px;
+}
+
+@media (max-width: 575px) {
+    .introduction-text h1 {
+        font-size: 26px;
+    }
 }
 
 .introduction-text h1 span {
@@ -321,11 +332,28 @@ body {
 /* end landing page */
 /* start about us */
 .about-us {
+    padding-top: 50px;
+    padding-bottom: 50px;
     display: flex;
+}
+@media (max-width: 767px) {
+    .about-us {
+        display: block;
+        text-align: center;
+    }
+
+    .about-us .info-box {
+        padding: 0;
+    }
 }
 .about-us .info-box {
     flex: 1;
     padding: 30px;
+}
+@media (max-width: 767px) {
+    .about-us .info-box {
+        padding: 0;
+    }
 }
 .about-us .info-box h2 {
     font-weight: bold;
@@ -368,11 +396,24 @@ body {
     margin-bottom: 15px;
 }
 
+@media (max-width: 767px) {
+    .skills .skill-box {
+        display: block;
+    }
+}
+
 .skills .skill-box .skill-name {
     font-weight: bold;
     width: 140px;
     text-align: center;
     line-height: 30px;
+}
+
+@media (max-width: 767px) {
+    .skills .skill-box .skill-name {
+        width: 100%;
+        margin-bottom: 15px;
+    }
 }
 
 .skills .skill-box .skill-progress {
@@ -382,6 +423,12 @@ body {
     border-radius: 6px;
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .skills .skill-box .skill-progress {
+        width: 100%;
+    }
 }
 
 .skills .skill-box .skill-progress span {
@@ -398,6 +445,7 @@ body {
 .gallery {
     padding-top: var(--padding-top);
     padding-bottom: var(--padding-bottom);
+    text-align: center;
 }
 .gallery h2 {
     font-weight: bold;
@@ -490,7 +538,7 @@ body {
     top: 0;
 }
 
-.timeline .timeline-content .year{
+.timeline .timeline-content .year {
     margin: 20px auto;
     width: 50px;
     background-color: var(--main-color);
@@ -503,6 +551,7 @@ body {
     font-weight: bold;
 }
 
+
 .timeline .timeline-content .left,
 .timeline .timeline-content .right {
     width: calc(50% - 25px);
@@ -510,9 +559,19 @@ body {
     position: relative;
 }
 
+@media (max-width: 767px) {
+    .timeline .timeline-content .left,
+    .timeline .timeline-content .right {
+        width: calc(100%);
+        margin-bottom: 20px;
+    }
+}
+
+
 .timeline .timeline-content .left {
     float: left;
 }
+
 .timeline .timeline-content .left::before,
 .timeline .timeline-content .right::before {
     content: '';
@@ -523,6 +582,13 @@ body {
     position: absolute;
     border-radius: 50%;
     top: 20px;
+}
+
+@media (max-width: 767px) {
+    .timeline .timeline-content .left::before,
+    .timeline .timeline-content .right::before {
+        display: none;
+    }
 }
 
 .timeline .timeline-content .right {
@@ -574,6 +640,14 @@ body {
     border-color: transparent #FFF transparent transparent;
     left: -19px;
 }
+
+@media (max-width: 767px) {
+    .timeline .timeline-content .left .content::before,
+    .timeline .timeline-content .right .content::before {
+        display: none;
+    }
+}
+
 /* end timeline */
 /* start features */
 .features {
@@ -593,6 +667,16 @@ body {
     text-align: center;
     margin-bottom: 40px;
 }
+@media (max-width: 991px) {
+    .features .feat-box {
+        width: calc(100% / 2);
+    }
+}
+@media (max-width: 575px) {
+    .features .feat-box {
+        width: 100%;
+    }
+} 
 .features .feat-box img {
     width: 96px;
 }
@@ -651,6 +735,11 @@ body {
     position: relative;
     z-index: 2;
 }
+@media (max-width: 767px) {
+    .testimonials h2 {
+        text-align: center;
+    }
+}
 .testimonials .ts-box {
     position: relative;
     z-index: 2;
@@ -658,6 +747,13 @@ body {
     float: left;
     background-color: #fff;
     padding: 20px;
+}
+@media (max-width: 767px) {
+    .testimonials .ts-box {
+        width: 100%;
+        float: none;
+        margin-bottom: 10px;
+    }
 }
 .testimonials .ts-box:not(:last-of-type) {
     margin-right: 1%;
@@ -672,10 +768,22 @@ body {
 .testimonials .ts-box .person-info {
     overflow: hidden;
 }
+@media (max-width: 991px) {
+    .testimonials .ts-box .person-info {
+        text-align: center;
+        overflow: visible;
+    }
+}
 .testimonials .ts-box .person-info img {
     float: left;
     border-radius: 50%;
     margin-right: 20px;
+}
+@media (max-width: 991px) {
+    .testimonials .ts-box .person-info img {
+        float: none;
+        margin-right: 0;
+    }
 }
 .testimonials .ts-box .person-info h4 {
     margin: 14px 0 10px;
@@ -729,6 +837,14 @@ body {
 .contact form .right {
     float: right;
     width: 49%;
+}
+
+@media (max-width: 767px) {
+    .contact form .right,
+    .contact form .left {
+        float: none;
+        width: 100%;
+    }
 }
 
 .contact form input:not([type='submit']),
